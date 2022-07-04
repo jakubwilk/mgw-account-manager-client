@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
+import { MantineProvider } from '@mantine/core'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter basename={'/'}>
+      <MantineProvider
+        theme={{
+          fontFamily: 'Poppins, sans-serif',
+          colors: {
+            mgw: ['#F4EEF6', '#DFD1E6', '#CBB3D6', '#B795C6', '#A377B6', '#8E59A6', '#724785', '#553564', '#392442', '#1C1221'],
+            mgwSecond: ['#A9658F', '#9B5581', '#8C4471', '#823866', '#742B59', '#67214D', '#5A1842', '#4F0E37', '#42062c', '#2a0221'],
+          },
+          primaryColor: 'mgw',
+        }}
+      >
+        <HelmetProvider>
+          <Routes>
+            <Route index element={<div>{'Home'}</div>} />
+          </Routes>
+        </HelmetProvider>
+      </MantineProvider>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

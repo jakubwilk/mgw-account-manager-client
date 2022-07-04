@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@configs": ["src/app/configs"],
+      "@configs/*": ["src/app/configs/*"]
+    }
+  }
+}
