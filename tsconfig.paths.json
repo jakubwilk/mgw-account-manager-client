@@ -2,8 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@locales": ["src/locales/pl"],
+      "@locales/*": ["src/locales/pl/*"],
       "@configs": ["src/app/configs"],
-      "@configs/*": ["src/app/configs/*"]
+      "@configs/*": ["src/app/configs/*"],
+      "@layouts": ["src/app/layouts"],
+      "@layouts/*": ["src/app/layouts/*"],
+      "@pages": ["src/app/pages"],
+      "@pages/*": ["src/app/pages/*"]
     }
   }
 }

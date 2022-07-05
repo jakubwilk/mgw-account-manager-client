@@ -2,14 +2,18 @@ import i18next, { InitOptions } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
+import pages from '@locales/pages.json'
+
 export const resources = {
-  pl: {},
+  pl: {
+    pages,
+  },
 }
 
 const i18nConfig: InitOptions = {
   lng: 'pl',
   fallbackLng: 'pl',
-  ns: ['global', 'login', 'session', 'navigation'],
+  ns: ['pages'],
   defaultNS: 'global',
   resources,
 }
