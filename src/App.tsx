@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { MantineProvider } from '@mantine/core'
 import { UserDashboardPage } from '@pages'
+import { LoginPage } from '@auth/pages'
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       >
         <HelmetProvider>
           <Routes>
-            <Route index element={<div>{'Home'}</div>} />
+            <Route index element={<LoginPage />} />
             <Route path={'/dashboard'} element={<UserDashboardPage />} />
           </Routes>
         </HelmetProvider>
