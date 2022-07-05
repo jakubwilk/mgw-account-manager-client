@@ -9,7 +9,9 @@
       "@layouts": ["src/app/layouts"],
       "@layouts/*": ["src/app/layouts/*"],
       "@pages": ["src/app/pages"],
-      "@pages/*": ["src/app/pages/*"]
+      "@pages/*": ["src/app/pages/*"],
+      "@auth": ["src/modules/auth"],
+      "@auth/*": ["src/modules/auth/*"]
     }
   }
 }
