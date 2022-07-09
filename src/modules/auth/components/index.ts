@@ -1,1 +1,1 @@
-export { default as LoginPageContent } from './LoginPageContent'
+export { default as LoginModal } from './LoginModal'
