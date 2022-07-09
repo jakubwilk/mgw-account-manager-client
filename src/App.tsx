@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { MantineProvider } from '@mantine/core'
-import { UserDashboardPage } from '@pages'
+import { UserDashboardPage, UsersCardsPage } from '@pages'
 
 function App() {
   return (
@@ -16,10 +16,12 @@ function App() {
           },
           primaryColor: 'mgw',
         }}
+        withGlobalStyles
+        withNormalizeCSS
       >
         <HelmetProvider>
           <Routes>
-            <Route index element={<div>{'Home'}</div>} />
+            <Route index element={<UsersCardsPage />} />
             <Route path={'/dashboard'} element={<UserDashboardPage />} />
           </Routes>
         </HelmetProvider>
