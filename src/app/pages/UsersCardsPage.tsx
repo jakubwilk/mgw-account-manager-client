@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { LoginModal } from '@auth/components'
+import AppLayout from '@layouts/AppLayout'
 
 function UsersCardsPage() {
   const { t } = useTranslation()
@@ -11,7 +11,7 @@ function UsersCardsPage() {
       <Helmet>
         <title>{t('pages:cardsList.title')}</title>
       </Helmet>
-      <LoginModal />
+      <AppLayout />
     </Fragment>
   )
 }

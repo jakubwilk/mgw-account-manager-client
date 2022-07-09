@@ -11,7 +11,9 @@
       "@pages": ["src/app/pages"],
       "@pages/*": ["src/app/pages/*"],
       "@auth": ["src/modules/auth"],
-      "@auth/*": ["src/modules/auth/*"]
+      "@auth/*": ["src/modules/auth/*"],
+      "@common": ["src/modules/common"],
+      "@common/*": ["src/modules/common/*"]
     }
   }
 }

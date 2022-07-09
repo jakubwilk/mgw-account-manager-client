@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { MantineProvider } from '@mantine/core'
 import { UserDashboardPage, UsersCardsPage } from '@pages'
+import { AuthModalProvider, AuthProvider } from '@auth/store'
 
 function App() {
   return (
@@ -20,10 +21,14 @@ function App() {
         withNormalizeCSS
       >
         <HelmetProvider>
-          <Routes>
-            <Route index element={<UsersCardsPage />} />
-            <Route path={'/dashboard'} element={<UserDashboardPage />} />
-          </Routes>
+          <AuthProvider>
+            <AuthModalProvider>
+              <Routes>
+                <Route index element={<UsersCardsPage />} />
+                <Route path={'/dashboard'} element={<UserDashboardPage />} />
+              </Routes>
+            </AuthModalProvider>
+          </AuthProvider>
         </HelmetProvider>
       </MantineProvider>
     </BrowserRouter>

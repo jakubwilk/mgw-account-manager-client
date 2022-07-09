@@ -1,1 +1,1 @@
-export { default as UserDashboardLayout } from './UserDashboardLayout'
+export { default as UserDashboardLayout } from './AppLayout'
