@@ -1,8 +1,9 @@
 import { Fragment, ReactElement, useContext, useState } from 'react'
-import { AppShell, Burger, Footer, Header, MediaQuery, Navbar, Text, useMantineTheme } from '@mantine/core'
+import { AppShell, Burger, Button, Footer, Header, MediaQuery, Navbar, Text, useMantineTheme } from '@mantine/core'
 import { AuthContext, AuthModalContext } from '@auth/store'
 import { AuthModalActionsEnum } from '@auth/models'
 import { LoginModal } from '@auth/components'
+import { useTranslation } from 'react-i18next'
 
 interface IProps {
   header?: ReactElement
@@ -12,6 +13,7 @@ interface IProps {
 
 function AppLayout({ header, sidebar, content }: IProps) {
   const theme = useMantineTheme()
+  const { t } = useTranslation()
   const authStore = useContext(AuthContext)
   const authModalStore = useContext(AuthModalContext)
   const [opened, setOpened] = useState(false)
@@ -29,20 +31,27 @@ function AppLayout({ header, sidebar, content }: IProps) {
         fixed
         navbar={
           <Navbar p={'md'} hiddenBreakpoint={'sm'} hidden={!opened} width={{ sm: 300, lg: 350 }}>
-            <Navbar.Section mt={'md'} grow>
-              {'linki\r'}
-            </Navbar.Section>
-            <Navbar.Section>
-              {authStore.state.isUser ? (
-                <p>{'user logged'}</p>
-              ) : (
-                <button
+            {authStore.state.isUser ? (
+              <Fragment>
+                <Navbar.Section mt={'md'} grow>
+                  {'Lorem ipsum'}
+                </Navbar.Section>
+                <Navbar.Section>
+                  <Button color={'red'} fullWidth>
+                    {'Wyloguj'}
+                  </Button>
+                </Navbar.Section>
+              </Fragment>
+            ) : (
+              <Navbar.Section>
+                <Button
                   onClick={() => authModalStore.dispatch({ type: AuthModalActionsEnum.OPEN_AUTH_MODAL, payload: { isLoginModal: true } })}
+                  fullWidth
                 >
-                  {'Zaloguj\r'}
-                </button>
-              )}
-            </Navbar.Section>
+                  {t('auth:actions.guestLogin')}
+                </Button>
+              </Navbar.Section>
+            )}
           </Navbar>
         }
         footer={
